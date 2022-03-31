@@ -1,6 +1,6 @@
 # Exported from:        http://Dhivya-lt10:5516/
 # Release version:      22.1.0-316.341
-# Date created:         Wed Mar 30 15:50:07 IST 2022
+# Date created:         Thu Mar 31 18:15:48 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -10,11 +10,18 @@ metadata:
 spec:
 - template: test
   scheduledStartDate: 2022-03-30T09:00:00+05:30
+  dueDate: 2022-03-30T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: test
       type: xlrelease.Task
+    - name: test1
+      type: jenkins.Build
+      jenkinsServer: localjenkins
+      username: testuser
+      password: !value "jenkins_Build_test1_password"
+      jobName: test
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_test_scriptUserPassword"
   riskProfile: Default risk profile

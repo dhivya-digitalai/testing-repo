@@ -4,10 +4,12 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  home: test
 spec:
-  imports:
-  - Notifications.yaml
-  - Templates.yaml
-  - Dashboards.yaml
-  - Patterns.yaml
+- pattern: testttt
+  stages:
+  - stage: New Stage (2)
+  - stage: New Stage (1)
+  - stage: New Stage

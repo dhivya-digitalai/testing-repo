@@ -4,12 +4,10 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  home: test
 spec:
-  imports:
-  - Trigger_www.yaml
-  - Dashboard_www.yaml
-  - Notifications.yaml
-  - Template_test.yaml
-  - Variables.yaml
-  - Pattern_ww.yaml
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.www

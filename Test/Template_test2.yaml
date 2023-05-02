@@ -8,10 +8,11 @@ kind: Templates
 metadata:
   home: test
 spec:
-- pattern: ww
-  stages:
-  - stage: New Stage (2)
-  - stage: New Stage (1)
-  - stage: New Stage
-  trackedItems:
-  - trackedItem: www
+- template: test2
+  scheduledStartDate: 2023-05-02T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: test2
+      type: xlrelease.Task
+  riskProfile: Default risk profile

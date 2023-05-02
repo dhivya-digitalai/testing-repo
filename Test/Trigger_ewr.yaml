@@ -8,6 +8,9 @@ kind: Templates
 metadata:
   home: test
 spec:
-- folderVariables:
-  - type: xlrelease.StringVariable
-    key: folder.www
+- name: ewr
+  type: time.Schedule
+  releaseTitle: re
+  template: test2
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON-FRI

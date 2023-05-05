@@ -1,0 +1,20 @@
+# Exported from:        http://Dhivya-lt10:5516/
+# Release version:      23.3.0-SNAPSHOT
+# Date created:         Fri May 05 19:50:24 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: test
+spec:
+- name: dfs
+  type: jenkins.Server
+  url: http://dhivya-lt10:5516/
+  username: dss
+  password: !value "jenkins_Server_dfs_password"
+- name: sds
+  type: jira.Server
+  url: http://dhivya-lt10:5516/
+  username: dsdsedwfsdfs
+  password: !value "jira_Server_sds_password"

@@ -10,7 +10,7 @@ metadata:
 spec:
 - name: dfs
   type: jenkins.Server
-  url: http://dhivya-lt10:5516/
+  url: http://dhivya-lt10:5516/newserver
   username: dss
   password: !value "jenkins_Server_dfs_password"
 - name: sds

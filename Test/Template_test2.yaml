@@ -1,6 +1,6 @@
 # Exported from:        http://Dhivya-lt10:5516/
 # Release version:      23.3.0-SNAPSHOT
-# Date created:         Tue May 09 14:12:17 IST 2023
+# Date created:         Tue May 09 14:13:20 IST 2023
 
 ---
 apiVersion: xl-release/v1
@@ -8,15 +8,6 @@ kind: Templates
 metadata:
   home: test
 spec:
-- template: test
-  scheduledStartDate: 2023-05-02T09:00:00+05:30
-  dueDate: 2023-05-02T10:00:00+05:30
-  phases:
-  - phase: New Phase
-    tasks:
-    - name: wwww
-      type: xlrelease.Task
-  riskProfile: Default risk profile
 - template: test2
   scheduledStartDate: 2023-05-02T09:00:00+05:30
   dueDate: 2023-05-02T10:00:00+05:30

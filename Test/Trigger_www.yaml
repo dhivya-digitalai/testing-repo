@@ -8,6 +8,10 @@ kind: Templates
 metadata:
   home: test
 spec:
-- folderVariables:
-  - type: xlrelease.StringVariable
-    key: folder.www
+- name: www
+  type: time.Schedule
+  releaseTitle: www
+  template: test
+  periodicity: 0 0 9-17 * * MON-FRI
+  enabled: false
+  triggerTime: 2023-05-05T17:00:00.315000

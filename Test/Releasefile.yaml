@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      24.1.0-SNAPSHOT
-# Date created:         Wed Mar 27 11:07:04 IST 2024
+# Date created:         Wed Mar 27 11:11:11 IST 2024
 
 ---
 apiVersion: xl-release/v1
@@ -8,4 +8,4 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
-  - Templates.yaml
+  - Template_test.yaml

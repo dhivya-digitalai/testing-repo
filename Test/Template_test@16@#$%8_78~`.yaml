@@ -9,7 +9,7 @@ metadata:
   path: /
   home: test
 spec:
-- template: /test
+- template: test@16@#$%8/78~`
   scheduledStartDate: 2025-02-26T09:00:00+05:30
   phases:
   - phase: New Phase

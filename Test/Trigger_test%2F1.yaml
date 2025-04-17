@@ -1,0 +1,17 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Thu Apr 17 15:07:31 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: test%2F1test
+  home: test/1test/test%2F1test
+spec:
+- name: test/1
+  type: time.Schedule
+  releaseTitle: test
+  template: test//test//
+  releaseFolder: test/1test
+  periodicity: 0 0 * * * *

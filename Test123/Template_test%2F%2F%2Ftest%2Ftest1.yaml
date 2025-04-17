@@ -1,0 +1,20 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Thu Apr 17 15:58:29 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: test%2Ftest1
+  home: test/test1/test%2Ftest1
+spec:
+- template: test///test/test1
+  scheduledStartDate: 2025-04-17T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: test/test
+      type: xlrelease.Task
+  riskProfile: Default risk profile
+  author: admin

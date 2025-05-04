@@ -1,0 +1,16 @@
+# Exported from:        http://dhivya:5517/
+# Release version:      23.3.4
+# Date created:         Wed Mar 20 14:20:00 IST 2024
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: Samples & Tutorials
+spec:
+- name: test
+  type: xlrelease.JGitConnectorConfig
+  url: https://github.com/dhivya-digitalai/testing-repo
+  branch: main
+  username: dhivya-digitalai
+  password: !value "xlrelease_JGitConnectorConfig_test_password"

@@ -4,11 +4,11 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  path: /
+  home: test
 spec:
-  imports:
-  - Notifications.yaml
-  - Patterns.yaml
-  - Templates.yaml
-  - Triggers.yaml
-  - Workflows.yaml
+- pattern: test
+  stages:
+  - stage: New Stage

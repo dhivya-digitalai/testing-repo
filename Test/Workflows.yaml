@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      25.3.0-SNAPSHOT
-# Date created:         Thu May 08 17:24:23 IST 2025
+# Date created:         Thu May 08 20:28:37 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,13 +9,15 @@ metadata:
   path: /
   home: test
 spec:
-- template: test///test//test
+- template: test///test/t/e////
   scheduledStartDate: 2025-05-08T09:00:00+05:30
   dueDate: 2025-05-08T10:00:00+05:30
   phases:
-  - phase: New Phase
+  - phase: Workflow tasks
     tasks:
-    - name: test//
+    - name: //test//
       type: xlrelease.Task
-  riskProfile: Default risk profile
+  kind: WORKFLOW
+  disableNotifications: true
   author: admin
+  defaultTargetFolder: ./

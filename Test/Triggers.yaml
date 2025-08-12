@@ -1,0 +1,18 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Aug 12 17:57:07 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- name: testjira
+  type: jira.IssueTrigger
+  releaseTitle: testtrigger
+  template: test///test//test
+  releaseFolder: ./
+  jql: test
+  server: testjira

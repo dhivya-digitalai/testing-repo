@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      25.3.0-SNAPSHOT
-# Date created:         Tue Aug 12 17:57:07 IST 2025
+# Date created:         Tue Aug 12 20:16:33 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -17,5 +17,9 @@ spec:
     tasks:
     - name: test//
       type: xlrelease.Task
+    - name: New task
+      type: jira.CheckIssue
+      jiraServer: testjira
+      issueId: saa
   riskProfile: Default risk profile
   author: admin

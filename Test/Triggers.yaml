@@ -16,4 +16,4 @@ spec:
   template: test///test//test
   releaseFolder: ./
   jql: test
-  server: testjira
+  server: testjira1

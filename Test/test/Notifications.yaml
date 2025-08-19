@@ -6,8 +6,8 @@
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  path: Demo
-  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo
+  path: Demo/test
+  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo/test
 spec:
 - notifications:
   - notification: TASK_OVERDUE

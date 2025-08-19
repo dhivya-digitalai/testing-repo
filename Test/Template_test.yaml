@@ -1,0 +1,23 @@
+# Exported from:        http://release.trial.digital.ai/
+# Release version:      25.3.0-beta.724
+# Date created:         Tue Aug 19 17:46:32 GMT 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: Demo
+  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo
+spec:
+- template: test
+  scheduledStartDate: 2024-03-27T03:30:00Z
+  dueDate: 2024-03-27T04:30:00Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: test
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_test_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

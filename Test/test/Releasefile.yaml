@@ -9,3 +9,4 @@ spec:
   imports:
   - Notifications.yaml
   - Permissions.yaml
+  - Template_newtest.yaml

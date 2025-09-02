@@ -1,0 +1,18 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Sep 02 19:34:47 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: test
+  home: test/test
+spec:
+- template: newtest
+  scheduledStartDate: 2025-08-21T02:30:49+05:30
+  dueDate: 2025-08-21T03:30:49+05:30
+  phases:
+  - phase: New Phase
+  riskProfile: Default risk profile
+  author: dhivya.dhanasekaran.digital.ai

@@ -1,13 +1,13 @@
-# Exported from:        http://release.trial.digital.ai/
-# Release version:      25.3.0-beta.724
-# Date created:         Thu Aug 21 11:55:22 GMT 2025
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Sep 02 19:34:47 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  path: test/teest1/test2/test4
-  home: dhivya.dhanasekaran.digital.ai%2FDemo%2Ftest/test/teest1/test2/test4
+  path: test/teest1/test2/test3
+  home: test/test/teest1/test2/test3
 spec:
 - notifications:
   - notification: TASK_OVERDUE

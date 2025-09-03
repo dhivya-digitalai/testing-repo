@@ -1,0 +1,20 @@
+# Exported from:        http://release.trial.digital.ai/
+# Release version:      25.3.0-beta.829
+# Date created:         Wed Sep 03 13:16:03 GMT 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: Demo/test/teest1
+  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo/test/teest1
+spec:
+- template: test
+  scheduledStartDate: 2025-08-28T21:00:44Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: New task
+      type: xlrelease.ParallelGroup
+  riskProfile: Default risk profile
+  author: dhivya.dhanasekaran.digital.ai

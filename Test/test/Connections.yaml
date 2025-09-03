@@ -1,0 +1,16 @@
+# Exported from:        http://release.trial.digital.ai/
+# Release version:      25.3.0-beta.829
+# Date created:         Wed Sep 03 13:16:03 GMT 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: Demo/test
+  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo/test
+spec:
+- name: test
+  type: git.Repository
+  url: https://github.com/dhivya-digitalai/testing-repo
+  username: dhivya-digitalai
+  password: !value "git_Repository_test_password"

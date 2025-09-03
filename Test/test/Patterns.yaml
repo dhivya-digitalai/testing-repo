@@ -1,0 +1,34 @@
+# Exported from:        http://release.trial.digital.ai/
+# Release version:      25.3.0-beta.829
+# Date created:         Wed Sep 03 13:16:03 GMT 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: Demo/test
+  home: dhivya.dhanasekaran.digital.ai%2FDemo/Demo/test
+spec:
+- pattern: test
+  stages:
+  - stage: New Stage (2)
+    transition:
+      name: New Transition
+      type: delivery.Transition
+      conditions:
+      - type: delivery.ConditionGroup
+        operator: OR
+        conditions:
+        - type: delivery.ConditionGroup
+          operator: AND
+          conditions:
+          - type: delivery.ItemsCompletionCondition
+  - stage: New Stage (6)
+  - stage: New Stage (5)
+  - stage: New Stage (4)
+  - stage: New Stage (1)
+  - stage: New Stage
+  - stage: New Stage (3)
+  trackedItems:
+  - trackedItem: testss
+  - trackedItem: test2

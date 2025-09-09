@@ -1,0 +1,12 @@
+# Exported from:        http://dhivya:5517/
+# Release version:      23.3.4
+# Date created:         Wed Mar 20 14:20:00 IST 2024
+
+---
+apiVersion: xl-release/v1
+kind: Import
+spec:
+  imports:
+  - Connections.yaml
+  - Notifications.yaml
+  - Templates.yaml

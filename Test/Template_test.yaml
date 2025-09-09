@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      25.3.0-SNAPSHOT
-# Date created:         Tue Sep 09 12:31:40 IST 2025
+# Date created:         Tue Sep 09 14:26:27 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -16,10 +16,25 @@ spec:
     tasks:
     - name: New task
       type: xlrelease.Task
-      facets:
-      - type: udm.DeploymentTaskFacet
-        version: "1"
-        application: testapp1
-        environment: testenv2
+  variables:
+  - type: xlrelease.StringVariable
+    key: re
+  extensions:
+  - name: Dashboard
+    type: xlrelease.Dashboard
+    owner: admin
+    tiles:
+    - name: Release progress
+      type: xlrelease.ReleaseProgressTile
+    - name: Release summary
+      type: xlrelease.ReleaseSummaryTile
+    - name: Resource usage
+      type: xlrelease.ResourceUsageTile
+    - name: Release timeline
+      type: xlrelease.TimelineTile
+    - name: Release health
+      type: xlrelease.ReleaseHealthTile
+    - name: Release automation
+      type: xlrelease.ReleaseAutomationTile
   riskProfile: Default risk profile
   author: admin

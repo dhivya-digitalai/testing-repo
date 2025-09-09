@@ -1,0 +1,21 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Sep 09 14:26:27 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- name: fdf
+  type: time.Schedule
+  releaseTitle: eeee
+  variables:
+  - type: xlrelease.StringVariable
+    key: re
+    value: eee
+  template: test
+  releaseFolder: ./
+  periodicity: 0 0 * * * *

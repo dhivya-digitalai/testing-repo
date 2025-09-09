@@ -1,0 +1,25 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Sep 09 12:31:40 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- template: test
+  scheduledStartDate: 2025-09-09T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: New task
+      type: xlrelease.Task
+      facets:
+      - type: udm.DeploymentTaskFacet
+        version: "1"
+        application: testapp1
+        environment: testenv2
+  riskProfile: Default risk profile
+  author: admin

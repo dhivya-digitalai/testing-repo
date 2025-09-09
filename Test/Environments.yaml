@@ -4,10 +4,11 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Environments
+metadata:
+  path: /
+  home: test
 spec:
-  imports:
-  - Applications.yaml
-  - Environments.yaml
-  - Notifications.yaml
-  - Template_test.yaml
+- name: eee
+  type: xlrelease.Environment
+  stage: Acceptance

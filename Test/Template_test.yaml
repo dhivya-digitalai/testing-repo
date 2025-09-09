@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      25.3.0-SNAPSHOT
-# Date created:         Tue Sep 09 14:26:27 IST 2025
+# Date created:         Tue Sep 09 14:27:50 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -11,30 +11,14 @@ metadata:
 spec:
 - template: test
   scheduledStartDate: 2025-09-09T09:00:00+05:30
+  dueDate: 2025-09-09T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: New task
       type: xlrelease.Task
-  variables:
-  - type: xlrelease.StringVariable
-    key: re
-  extensions:
-  - name: Dashboard
-    type: xlrelease.Dashboard
-    owner: admin
-    tiles:
-    - name: Release progress
-      type: xlrelease.ReleaseProgressTile
-    - name: Release summary
-      type: xlrelease.ReleaseSummaryTile
-    - name: Resource usage
-      type: xlrelease.ResourceUsageTile
-    - name: Release timeline
-      type: xlrelease.TimelineTile
-    - name: Release health
-      type: xlrelease.ReleaseHealthTile
-    - name: Release automation
-      type: xlrelease.ReleaseAutomationTile
+      facets:
+      - type: udm.DeploymentTaskFacet
+        version: "1"
   riskProfile: Default risk profile
   author: admin

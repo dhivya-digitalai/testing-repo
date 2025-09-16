@@ -1,0 +1,11 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Tue Sep 16 18:42:45 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Import
+spec:
+  imports:
+  - Notifications.yaml
+  - Template_test2.yaml

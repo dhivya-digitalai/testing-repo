@@ -9,18 +9,9 @@ metadata:
   path: /
   home: test
 spec:
-- template: test
+- template: test2
   scheduledStartDate: 2025-09-18T09:00:00+05:30
   phases:
   - phase: New Phase
-    tasks:
-    - name: New task
-      type: xlrelease.CreateReleaseTask
-      owner: admin
-      newReleaseTitle: testrel
-      template: .//test4
-      folder: ./
-  scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_test_scriptUserPassword"
   riskProfile: Default risk profile
   author: admin

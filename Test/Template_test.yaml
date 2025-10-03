@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      26.1.0-SNAPSHOT
-# Date created:         Fri Oct 03 12:59:21 IST 2025
+# Date created:         Fri Oct 03 13:42:24 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -17,7 +17,7 @@ spec:
     - name: New task
       type: xlrelease.CreateReleaseTask
       newReleaseTitle: test
-      template: Samples & Tutorials/Sample Release Template
+      template: Samples & Tutorials/Guided Tour for Release Managers
       folder: Samples & Tutorials
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_test_scriptUserPassword"

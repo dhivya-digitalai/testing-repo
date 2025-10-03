@@ -1,6 +1,6 @@
-# Exported from:        http://dhivya:5516/
-# Release version:      26.1.0-SNAPSHOT
-# Date created:         Tue Sep 30 21:19:10 IST 2025
+# Exported from:        http://release-nightly.devops.dev.digitalai.cloud/
+# Release version:      26.1.0-beta.930
+# Date created:         Fri Oct 03 07:19:39 GMT 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,9 +9,8 @@ metadata:
   path: /
   home: test
 spec:
-- name: test2
-  type: git.Repository
-  url: http://localhost:5516/
-  username: admin
-  password: !value "git_Repository_test2_password"
-  gitProvider: BITBUCKET
+- name: Argo CD
+  type: argocd.APIServer
+  url: https://argocd.usw2mgt.dev.digitalai.cloud
+  capabilities:
+  - remote

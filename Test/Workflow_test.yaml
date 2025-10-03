@@ -9,17 +9,18 @@ metadata:
   path: /
   home: test
 spec:
-- template: test
-  scheduledStartDate: 2025-10-02T21:00:12Z
+- template: Test
+  scheduledStartDate: 2025-09-30T03:30:00Z
   phases:
-  - phase: New Phase
+  - phase: Workflow tasks
     tasks:
     - name: New task
+      type: xlrelease.Task
+    - name: Create Release
       type: xlrelease.CreateReleaseTask
-      newReleaseTitle: test
-      template: m/temp1
-      folder: m
-  scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_test_scriptUserPassword"
-  riskProfile: Default risk profile
-  author: dhivya.dhanasekaran@digital.ai
+      newReleaseTitle: crt test
+      folder: ./
+  kind: WORKFLOW
+  disableNotifications: true
+  author: raghaw.panpaliya@digital.ai
+  defaultTargetFolder: ./

@@ -6,10 +6,10 @@
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  path: /
-  home: F1
+  path: F2
+  home: F1/F2
 spec:
-- template: T1
+- template: T2
   scheduledStartDate: 2025-10-08T09:00:00+05:30
   phases:
   - phase: New Phase

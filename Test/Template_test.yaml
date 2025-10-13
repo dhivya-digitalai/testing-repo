@@ -1,16 +1,16 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      26.1.0-SNAPSHOT
-# Date created:         Wed Oct 08 13:49:39 IST 2025
+# Date created:         Mon Oct 13 18:48:06 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: /
-  home: F1
+  home: test
 spec:
-- template: T1
-  scheduledStartDate: 2025-10-08T09:00:00+05:30
+- template: test
+  scheduledStartDate: 2025-10-13T09:00:00+05:30
   phases:
   - phase: New Phase
   riskProfile: Default risk profile

@@ -1,13 +1,13 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      26.1.0-SNAPSHOT
-# Date created:         Wed Oct 08 13:49:39 IST 2025
+# Date created:         Mon Oct 13 18:48:06 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: /
-  home: F1
+  home: test
 spec:
 - notifications:
   - notification: TASK_OVERDUE

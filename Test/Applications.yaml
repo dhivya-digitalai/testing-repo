@@ -4,10 +4,10 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Applications
+metadata:
+  path: /
+  home: test
 spec:
-  imports:
-  - Applications.yaml
-  - Environments.yaml
-  - Notifications.yaml
-  - Template_test.yaml
+- name: test
+  type: xlrelease.Application

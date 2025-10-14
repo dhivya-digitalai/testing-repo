@@ -1,6 +1,6 @@
 # Exported from:        http://dhivya:5516/
 # Release version:      26.1.0-SNAPSHOT
-# Date created:         Tue Oct 14 18:59:51 IST 2025
+# Date created:         Tue Oct 14 19:08:27 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,5 +9,7 @@ metadata:
   path: /
   home: tesrt
 spec:
+- name: tedd
+  type: xlrelease.Application
 - name: test
   type: xlrelease.Application

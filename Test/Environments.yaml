@@ -4,14 +4,11 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Templates
+kind: Environments
 metadata:
   path: /
   home: test
 spec:
-- template: test
-  scheduledStartDate: 2025-10-15T09:00:00+05:30
-  phases:
-  - phase: New Phase
-  riskProfile: Default risk profile
-  author: admin
+- name: test
+  type: xlrelease.Environment
+  stage: Test

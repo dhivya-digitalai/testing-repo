@@ -1,0 +1,15 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- name: test4
+  type: svn.Poll
+  releaseTitle: tess
+  template: testtemp
+  svnRepository: test3

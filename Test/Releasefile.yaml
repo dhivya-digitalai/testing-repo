@@ -6,4 +6,14 @@ apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
+  - Applications.yaml
+  - Connections.yaml
+  - Environments.yaml
   - Notifications.yaml
+  - Permissions.yaml
+  - Trigger_test.yaml
+  - Trigger_test1.yaml
+  - Trigger_test2.yaml
+  - Trigger_test3.yaml
+  - Trigger_test4.yaml
+  - Trigger_test5.yaml

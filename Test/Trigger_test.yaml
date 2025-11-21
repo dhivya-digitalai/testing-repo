@@ -1,0 +1,17 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- name: test
+  type: git.Poll
+  releaseTitle: testrel
+  template: testtemp
+  releaseFolder: ./
+  gitRepository: test
+  commitId: f08e15310e0d52d2e6f0e470892474f03b1bda78

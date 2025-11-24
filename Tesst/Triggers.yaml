@@ -1,0 +1,18 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+# Date created:         Mon Nov 24 17:07:27 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: teft
+  home: tesst%2Fteft/teft
+spec:
+- name: ttt
+  type: git.Poll
+  releaseTitle: ttt
+  template: testt
+  releaseFolder: tesst
+  gitRepository: test
+  commitId: f87fb76d0e47455670dd785d657fb4865a614737

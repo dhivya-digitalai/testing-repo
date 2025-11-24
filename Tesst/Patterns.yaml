@@ -4,13 +4,11 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  path: teft
+  home: tesst%2Fteft/teft
 spec:
-  imports:
-  - Dashboards.yaml
-  - Notifications.yaml
-  - Patterns.yaml
-  - Permissions.yaml
-  - Templates.yaml
-  - Triggers.yaml
-  - Variables.yaml
+- pattern: tttt
+  stages:
+  - stage: New Stage

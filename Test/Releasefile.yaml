@@ -5,5 +5,5 @@
 apiVersion: xl-release/v1
      kind:   Import
 spec:
-     imports:
+          imports:
   - Notifications.yaml

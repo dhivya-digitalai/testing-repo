@@ -6,7 +6,7 @@ apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: /
-  home: test
+  home: FVJythonApiTest
 spec:
 - notifications:
   - notification: TASK_OVERDUE

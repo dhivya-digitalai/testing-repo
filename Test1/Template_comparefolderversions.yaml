@@ -1,0 +1,159 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: FVJythonApiTest
+spec:
+- template: CompareFolderVersions
+  scheduledStartDate: 2025-08-10T18:30:00+05:30
+  dueDate: 2025-08-10T19:30:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: Get folderId
+      type: xlrelease.UserInputTask
+      description: Please enter the required information below.
+      owner: admin
+      variables:
+      - FolderId
+      - leftVersion
+      - rightVersion
+    - name: Compare versions
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        leftVersion = releaseVariables['leftVersion']
+        rightVersion = releaseVariables['rightVersion']
+
+        # ---- call API -------------------------------------------------------------
+        versions_view = folderVersioningApi.compareVersions(folder, leftVersion, rightVersion)
+
+        # Print basic info
+        print "Comparing folder: %s" % folder
+        print "Left version : %s" % versions_view.getLeftVersion()
+        print "Right version: %s" % versions_view.getRightVersion()
+        print "-" * 60
+
+        # Print header
+        print "%-40s %-10s" % ("File name", "Change")
+        print "-" * 60
+
+        # Iterate over file change records
+        for record in versions_view.getFileChangeRecords():
+            file_name  = record.getFileName()
+            change_type = record.getChangeType()
+            print "%-40s %-10s" % (file_name, str(change_type))
+    - name: Compare versions with latest
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        leftVersion = releaseVariables['leftVersion']
+
+        # ---- call API -------------------------------------------------------------
+        versions_view = folderVersioningApi.compareVersionWithCurrent(folder, leftVersion)
+
+        # Print basic info
+        print "Comparing folder: %s" % folder
+        print "Left version : %s" % versions_view.getLeftVersion()
+        print "Right version: %s" % versions_view.getRightVersion()
+        print "-" * 60
+
+        # Print header
+        print "%-40s %-10s" % ("File name", "Change")
+        print "-" * 60
+
+        # Iterate over file change records
+        for record in versions_view.getFileChangeRecords():
+            file_name  = record.getFileName()
+            change_type = record.getChangeType()
+            print "%-40s %-10s" % (file_name, str(change_type))
+    - name: Get file for comparison
+      type: xlrelease.UserInputTask
+      description: Enter file name for comparison
+      owner: admin
+      variables:
+      - fileForComparison
+    - name: Compare file version
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        leftVersion = releaseVariables['leftVersion']
+        rightVersion = releaseVariables['rightVersion']
+        fileName = releaseVariables['fileForComparison']
+
+        # ---- call API -------------------------------------------------------------
+        compareResults = folderVersioningApi.compareFileVersions(folder, fileName, leftVersion, rightVersion)
+
+        # Print results
+        print "Comparing folder: %s" % folder
+        print "Left version : %s" % leftVersion
+        print "Right version: %s" % rightVersion
+        print "File name: %s" % fileName
+        print("Comparison result:")
+        print (compareResults)
+    - name: Compare file version with latest
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        leftVersion = releaseVariables['leftVersion']
+        fileName = releaseVariables['fileForComparison']
+
+        # ---- call API -------------------------------------------------------------
+        compareResults = folderVersioningApi.compareFileVersionWithCurrent(folder, fileName, leftVersion)
+
+        # Print results
+        print "Comparing folder: %s" % folder
+        print "Left version : %s" % leftVersion
+        print "File name: %s" % fileName
+        print("Comparison result:")
+        print (compareResults)
+  variables:
+  - type: xlrelease.StringVariable
+    key: FolderId
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: applyVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: newVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: versionDescription
+    requiresValue: false
+    showOnReleaseStart: false
+    value: none
+  - type: xlrelease.StringVariable
+    key: leftVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: rightVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: fileForComparison
+    requiresValue: false
+    showOnReleaseStart: false
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_CompareFolderVersions_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

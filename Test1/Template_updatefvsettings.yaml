@@ -1,0 +1,226 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: FVJythonApiTest
+spec:
+- template: UpdateFVSettings
+  scheduledStartDate: 2025-08-10T18:30:00+05:30
+  dueDate: 2025-08-10T19:30:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: Get folderId
+      type: xlrelease.UserInputTask
+      description: Please enter the required information below.
+      owner: admin
+      variables:
+      - FolderId
+    - name: Get versions
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+
+        # ---- call API -------------------------------------------------------------
+        versions_view = folderVersioningApi.getVersions(folder)
+
+        # ---- pretty print ---------------------------------------------------------
+        def safe_get(obj, getter_name):
+            try:
+                return getattr(obj, getter_name)()
+            except:
+                return None
+
+        try:
+            versions = versions_view.getVersions()
+        except:
+            versions = None
+
+        print("Folder ID: %s" % folder)
+        print("Fetch changes: %s" % 'false')
+
+        if versions:
+            for idx, v in enumerate(versions):
+                version = safe_get(v, "getVersion") or str(v)
+                created_by = safe_get(v, "getCreatedBy")
+                created_at = safe_get(v, "getCreatedAt")
+                message = safe_get(v, "getMessage")
+
+                line_parts = ["version=%s" % version]
+                if created_by: line_parts.append("createdBy=%s" % created_by)
+                if created_at: line_parts.append("createdAt=%s" % created_at)
+                if message:    line_parts.append("message=%s" % message)
+                print(" - " + ", ".join(line_parts))
+
+        else:
+            # Fallback: just dump the view if we can't enumerate versions
+            print(str(versions_view))
+    - name: Validate current
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+
+        def print_validation_messages(label, messages):
+            if messages and len(messages) > 0:
+                print("%s:" % label)
+                for m in messages:
+                    try:
+                        print("  --- Message ---")
+                        print("    Title:              %s" % m.title())
+                        print("    Message:            %s" % m.message())
+                        print("    Message ID:         %s" % m.messageId())
+                        print("    Message Type:       %s" % m.messageType())
+                        print("    CI Type:            %s" % m.ciType())
+                        print("    CI Type Display:    %s" % m.ciTypeDisplayName())
+                        print("    Folder:             %s" % m.folder())
+                        print("    Folder ID:          %s" % m.folderId())
+                        print("    Property:           %s" % m.property())
+                        print("    Resolved Status:    %s" % m.resolvedStatus())
+                        print("    ID:                 %s" % m.id())
+                    except Exception as ex:
+                        print("    [Error printing message: %s]" % ex)
+            else:
+                print("%s: None" % label)
+
+
+        # ---- Apply Version ----
+        try:
+            validation_report = folderVersioningApi.validateCurrent(folder)
+
+            print("=== Validate folder Result ===")
+            print("Folder ID: %s" % folder)
+
+            print_validation_messages("Errors", validation_report.errors())
+            print_validation_messages("Warnings", validation_report.warnings())
+
+        except Exception as e:
+            print("Failed to validate folder '%s'." % folder)
+            print("Error: %s" % e)
+    - name: Get version to apply
+      type: xlrelease.UserInputTask
+      description: Please enter the required information below.
+      owner: admin
+      variables:
+      - applyVersion
+    - name: Apply version
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        version = releaseVariables['applyVersion']
+
+        def print_validation_messages(label, messages):
+            if messages and len(messages) > 0:
+                print("%s:" % label)
+                for m in messages:
+                    try:
+                        print("  --- Message ---")
+                        print("    Title:              %s" % m.title())
+                        print("    Message:            %s" % m.message())
+                        print("    Message ID:         %s" % m.messageId())
+                        print("    Message Type:       %s" % m.messageType())
+                        print("    CI Type:            %s" % m.ciType())
+                        print("    CI Type Display:    %s" % m.ciTypeDisplayName())
+                        print("    Folder:             %s" % m.folder())
+                        print("    Folder ID:          %s" % m.folderId())
+                        print("    Property:           %s" % m.property())
+                        print("    Resolved Status:    %s" % m.resolvedStatus())
+                        print("    ID:                 %s" % m.id())
+                    except Exception as ex:
+                        print("    [Error printing message: %s]" % ex)
+            else:
+                print("%s: None" % label)
+
+
+        # ---- Apply Version ----
+        try:
+            validation_report = folderVersioningApi.applyVersion(folder, version)
+
+            print("=== Apply Version Result ===")
+            print("Folder ID: %s" % folder)
+            print("Version:   %s" % version)
+
+            print_validation_messages("Errors", validation_report.errors())
+            print_validation_messages("Warnings", validation_report.warnings())
+
+        except Exception as e:
+            print("Failed to apply version '%s' to folder '%s'." % (VERSION, FOLDER_ID))
+            print("Error: %s" % e)
+    - name: Get new version tag to create
+      type: xlrelease.UserInputTask
+      description: Please enter the required information below.
+      owner: admin
+      variables:
+      - newVersion
+    - name: Create new version
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        import sys
+
+        folder = releaseVariables['FolderId']
+        newTag = releaseVariables['newVersion']
+        description = releaseVariables['versionDescription']
+
+        # ---- Create Version ----
+        try:
+            version_info = folderVersioningApi.createVersion(folder, newTag, description)
+
+            print("=== Version Created ===")
+            print("Name:          %s" % version_info.name)
+            print("Author:        %s" % version_info.author)
+            print("Committer:     %s" % version_info.committer)
+            print("Commit Hash:   %s" % version_info.commitHash)
+            print("Commit Time:   %s" % version_info.commitTime)
+            print("Short Message: %s" % version_info.shortMessage)
+            print("Full Message:  %s" % version_info.fullMessage)
+
+        except Exception as e:
+            print("Failed to create version '%s' for folder '%s'." % (newTag, folder))
+            print("Error: %s" % e)
+  variables:
+  - type: xlrelease.StringVariable
+    key: FolderId
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: applyVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: newVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: versionDescription
+    requiresValue: false
+    showOnReleaseStart: false
+    value: none
+  - type: xlrelease.StringVariable
+    key: leftVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: rightVersion
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: fileForComparison
+    requiresValue: false
+    showOnReleaseStart: false
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_UpdateFVSettings_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

@@ -5,8 +5,8 @@
 apiVersion: xl-release/v1
 kind: Permissions
 metadata:
-  path: /
-  home: test
+  path: test1/test2
+  home: test/test1/test2
 spec:
 - directory: "."
   teams:

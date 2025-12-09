@@ -8,5 +8,3 @@ spec:
   imports:
   - Notifications.yaml
   - Permissions.yaml
-  - Template_fvtemplate.yaml
-  - Template_test.yaml

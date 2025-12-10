@@ -1,0 +1,16 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: f1
+spec:
+- name: trig1
+  type: time.Schedule
+  releaseTitle: test
+  template: t1
+  releaseFolder: f2
+  periodicity: 0 0 * * * *

@@ -1,16 +1,16 @@
 # Exported from:        http://dhivya:5516/
-# Release version:      25.3.0-SNAPSHOT
-# Date created:         Wed Oct 08 16:16:11 IST 2025
+# Release version:      26.1.0-SNAPSHOT
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: F2/F3
-  home: F1/F2/F3
+  home: f1/F2/F3
 spec:
 - template: T3
   scheduledStartDate: 2025-10-08T09:00:00+05:30
+  dueDate: 2025-10-08T10:00:00+05:30
   phases:
   - phase: New Phase
   riskProfile: Default risk profile

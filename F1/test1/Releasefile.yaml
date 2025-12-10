@@ -7,5 +7,3 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
-  - Template_t1.yaml
-  - Trigger_t1.yaml

@@ -6,11 +6,12 @@ apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: /
-  home: f1
+  home: F1
 spec:
 - name: trig1
   type: time.Schedule
   releaseTitle: test
   template: t1
-  releaseFolder: f2
+  releaseFolder: F2
   periodicity: 0 0 * * * *
+  triggerTime: 2025-12-10T20:00:12.460000

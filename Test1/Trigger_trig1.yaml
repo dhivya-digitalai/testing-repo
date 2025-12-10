@@ -12,6 +12,6 @@ spec:
   type: time.Schedule
   releaseTitle: test
   template: t1
-  releaseFolder: F2
   periodicity: 0 0 * * * *
+  enabled: false
   triggerTime: 2025-12-10T20:00:12.460000

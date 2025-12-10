@@ -7,5 +7,7 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
-  - Template_t1.yaml
-  - Trigger_trig1.yaml
+  - Template_configure_release.yaml
+  - Template_guided_tour_for_release_managers.yaml
+  - Template_sample_release_template.yaml
+  - Template_welcome_to_release.yaml

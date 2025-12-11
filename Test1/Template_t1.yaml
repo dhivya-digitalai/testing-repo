@@ -17,7 +17,7 @@ spec:
     - name: New task
       type: xlrelease.CreateReleaseTask
       newReleaseTitle: test
-      template: Samples & Tutorials/Configure Release
+      template: Samples & Tutorials/Sample Release Template
       folder: Samples & Tutorials
   riskProfile: Default risk profile
   author: admin

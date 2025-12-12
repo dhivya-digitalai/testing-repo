@@ -6,8 +6,5 @@ apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Applications.yaml
-  - Environments.yaml
   - Notifications.yaml
   - Permissions.yaml
-  - Templates.yaml

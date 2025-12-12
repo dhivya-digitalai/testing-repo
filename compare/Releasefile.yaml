@@ -26,6 +26,12 @@ spec:
   children:
   - directory: test2
     children:
+    - template: test2-1
+      scheduledStartDate: 2025-12-12T09:00:00+05:30
+      phases:
+      - phase: New Phase
+      riskProfile: Default risk profile
+      author: admin
     - directory: test3
       children:
       - directory: test4

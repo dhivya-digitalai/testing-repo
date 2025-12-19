@@ -1,0 +1,73 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      24.3.13-SNAPSHOT
+# Date created:         Fri Dec 19 14:30:47 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- template: Repro
+  scheduledStartDate: 2022-08-02T12:30:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: start
+      type: xlrelease.Task
+    - name: create folders
+      type: xlrelease.ScriptTask
+      script: |-
+        from com.xebialabs.xlrelease.domain.folder import Folder
+
+        for x in range(2500):
+            folder = Folder()
+            folder.setTitle("Folder %s" % (x))
+            print "Creating folder %s" % (folder.getTitle())
+            folderApi.addFolder("Applications", folder)
+    - name: create users
+      type: xlrelease.ScriptTask
+      owner: admin
+      script: |-
+        from com.xebialabs.xlrelease.api.v1.forms import UserAccount
+
+        for x in range(10000):
+            account = UserAccount()
+            account.setUsername("user" + str(x))
+            account.setFullName("User " + str(x))
+            account.setEmail("user" + str(x) + "@xl.com")
+            account.setPassword(account.getUsername())
+
+            print "Creating user %s" % (account.getUsername())
+
+            userApi.createUser(account.getUsername(), account)
+    - name: create roles
+      type: xlrelease.ScriptTask
+      script: |-
+        from com.xebialabs.xlrelease.api.v1.views import RoleView, PrincipalView
+
+        for x in range(15):
+            roles = []
+            for y in range(1000):
+                role = RoleView()
+                role.setName("Role %s" % (x*1000+y))
+                role.setPermissions(["release#create", "template#create", "reports#view", "security#edit"])
+                user1 = PrincipalView()
+                user1.setUsername("user1")
+                user2 = PrincipalView()
+                user2.setUsername("user2")
+                user3 = PrincipalView()
+                user3.setUsername("user3")
+                role.setPrincipals([user1, user2, user3])
+                roles.append(role)
+
+                print "Creating role %s" % (role.getName())
+
+            print "Flushing 1000 roles"
+            rolesApi.create(roles)
+    - name: stop
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Repro_scriptUserPassword"
+  riskProfile: Default risk profile

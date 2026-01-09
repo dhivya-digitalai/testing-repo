@@ -1,0 +1,29 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      26.1.0-SNAPSHOT
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test1
+spec:
+- template: test1
+  scheduledStartDate: 2026-01-09T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: New task
+      type: xlrelease.UnknownType
+      flagStatus: ATTENTION_NEEDED
+      flagComment: Task 'New task' in Phase 'New Phase' has been replaced by an unknown
+        task. The task of type 'maintenance.PurgeArchivedReleases' could not be found
+        because of a missing plugin.
+    - name: New task
+      type: xlrelease.UnknownType
+      flagStatus: ATTENTION_NEEDED
+      flagComment: Task 'New task' in Phase 'New Phase' has been replaced by an unknown
+        task. The task of type 'maintenance.PurgeReleases' could not be found because
+        of a missing plugin.
+  riskProfile: Default risk profile
+  author: admin

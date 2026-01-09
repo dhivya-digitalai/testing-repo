@@ -10,20 +10,23 @@ metadata:
 spec:
 - template: test1
   scheduledStartDate: 2026-01-09T09:00:00+05:30
+  dueDate: 2026-01-09T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: New task
-      type: xlrelease.UnknownType
+      type: xlrelease.CreateReleaseTask
       flagStatus: ATTENTION_NEEDED
       flagComment: Task 'New task' in Phase 'New Phase' has been replaced by an unknown
         task. The task of type 'maintenance.PurgeArchivedReleases' could not be found
         because of a missing plugin.
+      folder: ./
     - name: New task
-      type: xlrelease.UnknownType
+      type: xlrelease.CreateReleaseTask
       flagStatus: ATTENTION_NEEDED
       flagComment: Task 'New task' in Phase 'New Phase' has been replaced by an unknown
         task. The task of type 'maintenance.PurgeReleases' could not be found because
         of a missing plugin.
+      folder: ./
   riskProfile: Default risk profile
   author: admin

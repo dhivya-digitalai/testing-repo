@@ -13,9 +13,11 @@ spec:
   phases:
   - phase: New Phase
     tasks:
-    - name: test jenkins
-      type: containerJenkins.JenkinsBuild
-      capabilities:
-      - remote
+    - name: New task
+      type: maintenance.PurgeTemplates
+    - name: New task
+      type: maintenance.PurgeArchivedReleases
+    - name: New task
+      type: maintenance.PurgeReleases
   riskProfile: Default risk profile
   author: admin

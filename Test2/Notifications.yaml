@@ -6,7 +6,7 @@ apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: test2
-  home: test1%2Ftest2/test2
+  home: test%2Ftest2/test2
 spec:
 - notifications:
   - notification: TASK_OVERDUE

@@ -8,9 +8,9 @@ metadata:
   path: /
   home: test
 spec:
-- template: test
-  scheduledStartDate: 2026-01-16T09:00:00+05:30
-  phases:
-  - phase: New Phase
-  riskProfile: Default risk profile
-  author: admin
+- name: test
+  type: time.Schedule
+  releaseTitle: testrel
+  template: test
+  releaseFolder: test-out/test-out-out
+  periodicity: 0 0 * * * *

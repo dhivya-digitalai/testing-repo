@@ -8,3 +8,5 @@ spec:
   imports:
   - Notifications.yaml
   - Template_test.yaml
+  - Trigger_test.yaml
+  - Trigger_test2.yaml

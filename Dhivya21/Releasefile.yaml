@@ -7,3 +7,4 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
+  - Template_dhivya_2_1.yaml

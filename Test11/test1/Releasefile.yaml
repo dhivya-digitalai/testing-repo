@@ -6,7 +6,5 @@ apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Dashboard_dd.yaml
   - Notifications.yaml
   - Permissions.yaml
-  - Template_tresssf.yaml

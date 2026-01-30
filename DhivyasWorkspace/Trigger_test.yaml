@@ -1,0 +1,16 @@
+# Exported from:        http://release-beta-validation-test.devops.dev.digitalai.cloud/
+# Release version:      26.1.0-beta.127
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: Dhivya's Workspace
+spec:
+- name: test
+  type: time.Schedule
+  releaseTitle: testDDtrigger
+  template: testDDtemplate
+  releaseFolder: ./
+  periodicity: 0 0 * * * *

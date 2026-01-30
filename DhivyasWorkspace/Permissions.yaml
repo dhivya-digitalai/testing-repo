@@ -1,0 +1,88 @@
+# Exported from:        http://release-beta-validation-test.devops.dev.digitalai.cloud/
+# Release version:      26.1.0-beta.127
+
+---
+apiVersion: xl-release/v1
+kind: Permissions
+metadata:
+  path: /
+  home: Dhivya's Workspace
+spec:
+- directory: "."
+  teams:
+  - name: Release Admin
+    users:
+    - dhivya.dhanasekaran@digital.ai
+    permissions:
+    - release#task_transition
+    - release#edit_task
+    - release#edit_task_input_output_properties
+    - trigger#edit_trigger
+    - release#lock_task
+    - release#abort
+    - app_pipelines#view
+    - release#edit_task_description
+    - release#restart_phase
+    - release#edit_failure_handler
+    - release#edit_task_flag
+    - release#edit
+    - workflow#abort_execution
+    - workflow#view_execution
+    - workflow#start_execution
+    - release#edit_task_tags
+    - release#edit_task_configuration_facet
+    - release#edit_security
+    - release#edit_blackout
+    - release#reassign_lock_task
+    - release#reassign_task
+    - release#edit_precondition
+    - release#start
+    - release#view
+    - release#edit_task_script
+    - release#edit_task_dates
+    - release#edit_task_attachments
+    - trigger#view_trigger
+    - folder#view
+    - release#advance_task_transition
+  - name: Folder Owner
+    users:
+    - dhivya.dhanasekaran@digital.ai
+    permissions:
+    - dashboard#view
+    - folder#generate_configuration
+    - folder#view
+    - folder#apply_changes
+    - delivery_pattern#view
+    - app_pipelines#edit
+    - folder#edit_versions
+    - folder#edit_variables
+    - delivery#edit_tracked_item
+    - dashboard#edit
+    - folder#view_security
+    - group#edit
+    - delivery#view
+    - delivery#edit
+    - group#view
+    - app_pipelines#view
+    - folder#view_versions
+    - folder#edit_security
+    - folder#edit_notifications
+    - delivery_pattern#edit
+    - folder#edit
+    - folder#edit_configuration
+  - name: Template Owner
+    users:
+    - dhivya.dhanasekaran@digital.ai
+    permissions:
+    - template#lock_task
+    - template#edit_precondition
+    - template#edit_triggers
+    - folder#view
+    - template#create_release_other_folder
+    - template#view
+    - template#create_release
+    - template#edit
+    - template#edit_security
+    - trigger#view_trigger
+    - template#edit_failure_handler
+    - app_pipelines#view

@@ -1,0 +1,12 @@
+# Exported from:        http://release-beta-validation-test.devops.dev.digitalai.cloud/
+# Release version:      26.1.0-beta.127
+
+---
+apiVersion: xl-release/v1
+kind: Import
+spec:
+  imports:
+  - Notifications.yaml
+  - Permissions.yaml
+  - Template_testddtemplate.yaml
+  - Trigger_test.yaml

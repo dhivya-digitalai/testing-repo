@@ -1,12 +1,11 @@
 # Exported from:        http://dhivya:5516/
-# Release version:      25.1.7-SNAPSHOT
-# Date created:         Wed Dec 17 20:49:11 IST 2025
+# Release version:      23.1.1
+# Date created:         Tue Mar 10 19:17:43 IST 2026
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  path: /
   home: test
 spec:
 - notifications:
@@ -21,13 +20,6 @@ spec:
     - Watcher
     - Release Admin
     - Task Owner
-  - notification: AUDIT_REPORT_JOB_ABORTED
-    priority: Normal
-    subject: "[Release] Audit report was aborted"
-    body: |-
-      **Your audit report was aborted!**
-
-       Please try to generate it again or contact your Release administrator for assistance.
   - notification: TASK_FLAGGED
     priority: High
     subject: "[Release] ${release.title}: ${task.title}"
@@ -39,6 +31,13 @@ spec:
     - Watcher
     - Release Admin
     - Task Team
+  - notification: AUDIT_REPORT_JOB_ABORTED
+    priority: Normal
+    subject: "[Release] Audit report was aborted"
+    body: |-
+      **Your audit report was aborted!**
+
+       Please try to generate it again or contact your Release administrator for assistance.
   - notification: MANUAL_TASK_STARTED
     priority: Normal
     subject: "[Release] ${release.title}: ${task.title}"
@@ -184,19 +183,6 @@ spec:
     priority: Normal
     subject: "${notification.subject}"
     body: "${notification.body}"
-  - notification: RELEASE_ABORTED
-    priority: Normal
-    subject: "[Release] ${release.title}"
-    body: "The **${release.title}** release has been aborted."
-    bulkSubject: "[Release] Multiple releases aborted"
-    bulkBody: |-
-      The following releases have been aborted:
-
-      ${#releases}
-      * [${title}](${url})
-      ${/releases}
-    roles:
-    - Release Admin
   - notification: RELEASE_STARTED
     priority: Normal
     subject: "[Release] ${release.title}"
@@ -204,6 +190,19 @@ spec:
     bulkSubject: "[Release] Multiple releases started"
     bulkBody: |-
       The following releases have been started:
+
+      ${#releases}
+      * [${title}](${url})
+      ${/releases}
+    roles:
+    - Release Admin
+  - notification: RELEASE_ABORTED
+    priority: Normal
+    subject: "[Release] ${release.title}"
+    body: "The **${release.title}** release has been aborted."
+    bulkSubject: "[Release] Multiple releases aborted"
+    bulkBody: |-
+      The following releases have been aborted:
 
       ${#releases}
       * [${title}](${url})

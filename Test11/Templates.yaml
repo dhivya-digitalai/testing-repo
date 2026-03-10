@@ -1,0 +1,32 @@
+# Exported from:        http://dhivya:5516/
+# Release version:      23.1.1
+# Date created:         Tue Mar 10 21:27:11 IST 2026
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: test
+spec:
+- template: test
+  scheduledStartDate: 2026-03-10T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: test
+      type: jenkins.Build
+      jenkinsServer: testjenkins
+      variableMapping:
+        pythonScript.jenkinsServer: "${testjenkins}"
+  variables:
+  - type: xlrelease.ReferenceVariable
+    key: test
+    requiresValue: false
+    showOnReleaseStart: false
+    referencedType: jenkins.Server
+  - type: xlrelease.ReferenceVariable
+    key: testjenkins
+    requiresValue: false
+    showOnReleaseStart: false
+    referencedType: jenkins.Server
+  riskProfile: Default risk profile

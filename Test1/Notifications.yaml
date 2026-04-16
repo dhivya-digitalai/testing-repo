@@ -1,5 +1,5 @@
 # Exported from:        http://dhivya:5516/
-# Release version:      26.1.0-SNAPSHOT
+# Release version:      26.3.0-SNAPSHOT
 
 ---
 apiVersion: xl-release/v1
@@ -9,6 +9,13 @@ metadata:
   home: test
 spec:
 - notifications:
+  - notification: AUDIT_REPORT_JOB_ABORTED
+    priority: Normal
+    subject: "[Release] Audit report was aborted"
+    body: |-
+      **Your audit report was aborted!**
+
+       Please try to generate it again or contact your Release administrator for assistance.
   - notification: TASK_OVERDUE
     priority: High
     subject: "[Release] ${release.title}: ${task.title}"
@@ -20,13 +27,6 @@ spec:
     - Watcher
     - Release Admin
     - Task Owner
-  - notification: AUDIT_REPORT_JOB_ABORTED
-    priority: Normal
-    subject: "[Release] Audit report was aborted"
-    body: |-
-      **Your audit report was aborted!**
-
-       Please try to generate it again or contact your Release administrator for assistance.
   - notification: TASK_FLAGGED
     priority: High
     subject: "[Release] ${release.title}: ${task.title}"
@@ -48,6 +48,12 @@ spec:
     roles:
     - Watcher
     - Task Owner
+  - notification: USER_MENTIONED
+    priority: Normal
+    subject: "[Release] ${mentionedByFullName} mentioned you on ${release.title}:\
+      \ ${task.title}"
+    body: "**${mentionedByFullName}** mentioned you on the **${task.title}** task\
+      \ in the **${release.title}** release:"
   - notification: TASK_FAILED
     priority: High
     subject: "[Release] ${release.title}: ${task.title}"
@@ -61,12 +67,6 @@ spec:
     - Watcher
     - Task Team
     - Task Owner
-  - notification: USER_MENTIONED
-    priority: Normal
-    subject: "[Release] ${mentionedByFullName} mentioned you on ${release.title}:\
-      \ ${task.title}"
-    body: "**${mentionedByFullName}** mentioned you on the **${task.title}** task\
-      \ in the **${release.title}** release:"
   - notification: COMMENT_ADDED
     priority: Normal
     subject: "[Release] ${release.title}: ${task.title}"
@@ -183,19 +183,6 @@ spec:
     priority: Normal
     subject: "${notification.subject}"
     body: "${notification.body}"
-  - notification: RELEASE_ABORTED
-    priority: Normal
-    subject: "[Release] ${release.title}"
-    body: "The **${release.title}** release has been aborted."
-    bulkSubject: "[Release] Multiple releases aborted"
-    bulkBody: |-
-      The following releases have been aborted:
-
-      ${#releases}
-      * [${title}](${url})
-      ${/releases}
-    roles:
-    - Release Admin
   - notification: RELEASE_STARTED
     priority: Normal
     subject: "[Release] ${release.title}"
@@ -203,6 +190,19 @@ spec:
     bulkSubject: "[Release] Multiple releases started"
     bulkBody: |-
       The following releases have been started:
+
+      ${#releases}
+      * [${title}](${url})
+      ${/releases}
+    roles:
+    - Release Admin
+  - notification: RELEASE_ABORTED
+    priority: Normal
+    subject: "[Release] ${release.title}"
+    body: "The **${release.title}** release has been aborted."
+    bulkSubject: "[Release] Multiple releases aborted"
+    bulkBody: |-
+      The following releases have been aborted:
 
       ${#releases}
       * [${title}](${url})

@@ -16,11 +16,7 @@ spec:
     - name: Task C
       type: xlrelease.CreateReleaseTask
       newReleaseTitle: ReleaseC
-      template: ../TemplateB
-      folder: ..
-    - name: New task
-      type: xlrelease.CreateReleaseTask
-      template: ../FolderB2/TemplateB2
-      folder: ../FolderB2
+      template: Root/FolderA2/TemplateA2
+      folder: Root/FolderA2
   riskProfile: Default risk profile
   author: admin

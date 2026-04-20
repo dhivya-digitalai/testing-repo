@@ -8,6 +8,18 @@ metadata:
   path: /
   home: Root/FolderE
 spec:
+- template: TemplateE
+  scheduledStartDate: 2026-04-20T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: New task
+      type: xlrelease.CreateReleaseTask
+      newReleaseTitle: ss
+      template: ./folderesample
+      folder: ./
+  riskProfile: Default risk profile
+  author: admin
 - template: folderesample
   scheduledStartDate: 2026-04-20T09:00:00+05:30
   phases:

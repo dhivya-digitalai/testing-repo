@@ -7,3 +7,4 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
+  - Permissions.yaml

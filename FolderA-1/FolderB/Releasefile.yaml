@@ -7,4 +7,5 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
-  - Template_templateb.yaml
+  - Permissions.yaml
+  - Templates.yaml

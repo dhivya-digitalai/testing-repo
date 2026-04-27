@@ -7,5 +7,6 @@ kind: Import
 spec:
   imports:
   - Notifications.yaml
-  - Template_templatec.yaml
-  - Trigger_testtrigger.yaml
+  - Permissions.yaml
+  - Templates.yaml
+  - Triggers.yaml

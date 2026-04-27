@@ -18,5 +18,5 @@ spec:
   type: time.Schedule
   releaseTitle: test
   template: templateC
-  releaseFolder: Root/FolderA2
+  releaseFolder: A22
   periodicity: 0 0 * * * *
